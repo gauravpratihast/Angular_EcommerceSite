@@ -1,0 +1,41 @@
+.container-fluid{
+    background: white;
+    margin-top: 2rem;
+    margin-bottom: 17.5rem;
+    padding: 0 5rem;
+    .checkout{
+        a{
+            button{
+                width: 10rem;
+            }
+        }
+    }
+    table{
+        img{
+            height: 5rem;
+            width: 5rem;
+        }
+        tbody{
+            tr{
+                vertical-align: middle;
+            }
+            button{
+                border-radius: 50%;
+                box-shadow: none !important;
+                &:active{
+                    transform: translateY(.2rem);
+                }
+            }
+            .btn{
+                img{
+                    height: 1rem;
+                    width: 1rem;
+                }
+            }
+            #items{
+                width: 2rem;
+
+            }
+        }
+    }
+}

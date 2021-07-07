@@ -1,0 +1,39 @@
+<div class="background container-fluid">
+    <div class="container pt-3" *ngFor="let alert of alerts">
+        <div class="alert mx-auto alert-success" (close)="closeAlert(alert)">{{ alert.message }}</div>
+    </div>
+    <h1 mat-dialog-title  class="text-center">Add Product</h1>
+    <div class="row pb-5">
+        <div class="col-md-12 form-container bg-white pt-4 rounded">
+            <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit(myReactiveForm.value)">
+                <div class="mb-3">
+                    <label class="inputLabel" for="name">Product Name: </label>
+                    <input type="text" formControlName="name">
+                    <p *ngIf="!myReactiveForm.get('name')?.valid && myReactiveForm.get('name')?.touched">*Please enter the product name</p>
+                </div>
+                <div class="imagediv text-center">
+                    <img *ngIf='showingImage' src="{{selectedImage}}" alt="Image Not Loaded">
+                </div>
+                <div class="mb-3">
+                    <label class="inputLabel" for="name">Product Image: </label>
+                    <input class="imageInput" type="file" (change)='onFileSelected($event)' formControlName="image">
+                    <p *ngIf="!myReactiveForm.get('image')?.valid && myReactiveForm.get('image')?.touched">*Please select an image</p>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="inputLabel" for="marks">Product Price: </label>
+                    <input type="text" formControlName="price">
+                    <p *ngIf="!myReactiveForm.get('price')?.valid && myReactiveForm.get('price')?.touched">*Only Numbers are allowed</p>
+                </div>
+                <div class="mb-3">
+                    <label for="des">Product Description: </label>
+                    <textarea type="text" formControlName="description" rows="4"></textarea>>
+                    <p *ngIf="!myReactiveForm.get('description')?.valid && myReactiveForm.get('description')?.touched">*Please enter the product description</p>
+                </div>
+                <div class="button text-center mb-3">
+                    <button class="btn btn-info" [disabled]="!myReactiveForm.valid">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

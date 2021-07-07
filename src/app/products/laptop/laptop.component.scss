@@ -1,0 +1,31 @@
+.container{
+    h1{
+        font-size: 2rem;
+        font-weight: bolder;
+        color: #303F9F;
+    }
+    .flightimage{
+        img{
+            height: 20rem !important;
+            width: 60rem !important;
+            @media(max-width: 1000px){
+                height: 40% !important;
+                width: 80% !important;
+            }
+        }
+    }
+    .details{
+        mat-form-field{
+            width: 14rem;
+            font-size: 1rem;
+            font-weight: bolder;
+
+        }
+    }
+    button{
+        width: 15rem;
+        height: 3rem;
+        font-size: 1rem;
+        font-weight: bolder;
+    }
+}

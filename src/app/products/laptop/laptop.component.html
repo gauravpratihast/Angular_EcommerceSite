@@ -1,0 +1,24 @@
+<div class="container my-5">
+    <h1 class="text-center">Product Details</h1>
+    <div class="flightimage text-center my-4">
+        <img src="{{detailArray[0].imageLink}}" alt="Image Not Loaded">
+    </div>
+    <div class="details text-center my-3">
+        <mat-form-field class="mx-2">
+            <mat-label>Product Name</mat-label>
+            <input matInput value="{{detailArray[0].productName}}">
+        </mat-form-field>
+        <mat-form-field class="mx-2">
+            <mat-label>Product Price</mat-label>
+            <input matInput value="{{detailArray[0].price}}">
+        </mat-form-field>
+        <mat-form-field class="mx-2">
+            <mat-label>Product Description</mat-label>
+            <input matInput value="{{detailArray[0].product_Description}}">
+        </mat-form-field>
+    </div>
+    <div class="button text-center mb-5">
+        <button mat-raised-button color='accent' (click)='booked(detailArray[0].productName)'>Book Now</button>
+    </div>
+
+</div>

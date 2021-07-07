@@ -1,0 +1,40 @@
+<mat-toolbar color='accent' class="d-flex justify-content-between">
+    <span>Admin Dashboard</span>
+    <span>Admin</span>
+</mat-toolbar>
+<div class="container">
+    <div class="my-4 d-flex justify-content-around">
+        <div class="addButton">
+            <button mat-raised-button (click)='openDialog(select.value)'>Add new Flight</button>
+        </div>
+        <mat-form-field class="my-1">
+            <mat-label>Category</mat-label>
+            <mat-select [(ngModel)]="typeOfProduct" (ngModelChange)="changeValue($event)" #select>
+                <mat-option value='mobile' selected>Mobile</mat-option>
+                <mat-option value='laptop'>Laptop</mat-option>
+                <mat-option value='clothing'>Clothing</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="row py-5">
+        <div class="col-md-4 col-xs-12 mb-4" *ngFor="let item of productdata; last as i"
+            [ngClass]=" i ? 'col-sm-12': 'col-sm-6' ">
+            <div class="card single-item">
+                <div class="img-container">
+                    <img src="{{item.imageLink}}" alt="Not loaded" class="card-img-top product-img">
+                </div>
+                <div class="card-body">
+                    <div class="card-text text text-center text-capitalize mb-3">
+                        <h5>{{item.productName}}</h5>
+                        <span><strong>$</strong>{{item.price}}</span>
+                    </div>
+                    <div class="text-center">
+                        <a><button mat-raised-button color="primary" class="me-2"
+                                (click)='delete(item.id, select.value)'>Delete</button></a>
+                        <button mat-raised-button color="accent" (click)='EditProduct(item, select.value)'>Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

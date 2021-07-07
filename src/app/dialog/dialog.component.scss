@@ -1,0 +1,59 @@
+.background{
+    .alert{
+        width: 100%;
+        font-weight: bolder;
+        color: black;
+    }
+    h1{
+        text-decoration: underline;
+        font-weight: bolder;
+    }
+    .form-container{
+        .imagediv{
+            img{
+                height: 10rem;
+                width: 15rem;
+                border-radius: 1rem;
+            }
+            img:active{
+                transform: translateY(.3rem);
+            }
+        }
+        .imageInput{
+            color: black !important;
+        }
+        label{
+            color: black !important;
+            font-size: 1.2rem;
+            font-weight: bolder;
+        }
+        p{
+            color: rgb(201, 11, 11) !important;
+            font-size: 1.2rem;
+            font-weight: bolder;
+        }
+        input, textarea{
+            width: 100%;
+            font-size: 1.1rem;
+            border-radius: .2rem;
+            padding: .3rem .5rem;
+            border: .01rem solid gray;
+            border-left: .4rem solid green;
+            outline: none !important;
+            
+        }
+        input.ng-touched.ng-invalid, textarea.ng-touched.ng-invalid{
+            border-left: .4rem solid red;
+            box-shadow: 0 0 .8rem inset rgba(255, 0, 0, .2);
+        }
+        button{
+            box-shadow: none !important;
+            border-radius: .5rem;
+            cursor: pointer;
+            width: 10rem;
+        }
+        button:active{
+            transform: translateY(.3rem);
+        }
+    }
+}

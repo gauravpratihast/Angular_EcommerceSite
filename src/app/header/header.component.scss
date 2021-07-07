@@ -1,0 +1,34 @@
+header{
+    // background: #FFA781;
+    // background: rgb(211, 203, 203);
+    background: #303F9F;
+    box-shadow: .1rem .1rem 1rem black;
+    .navbar-brand{
+        img{
+            height: 3rem;
+            width: 12rem;
+            border-radius: .5rem;
+        }
+    }
+    button{
+        img{
+            height: 3rem;
+            width: 4rem;
+        }
+    }
+    .navbar-nav{
+        .nav-item{
+            .nav-link{
+                font-size: 1.2rem;
+                font-weight: bolder;
+                // color: #5B0E2D;
+                color: 	white;
+                text-transform: uppercase;
+                padding: 0 1rem !important;
+                @media(max-width: 991px){
+                    padding: .8rem 0 !important;
+                }
+            }
+        }
+    }
+}

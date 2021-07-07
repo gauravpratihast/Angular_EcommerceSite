@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <h1 mat-dialog-title class="text-center">Edit Product Information</h1>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Product Name</span>
+        <input type="text" class="form-control" value={{productName}} aria-label="Username" aria-describedby="basic-addon1"
+         name='productname' #productname>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Price</span>
+        <input type="text" class="form-control" value={{price}} aria-label="Username" aria-describedby="basic-addon1" 
+        name='productPrice' #productPrice>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Product description</span>
+        <input type="text" class="form-control" value={{product_Description}} aria-label="Username" aria-describedby="basic-addon1" name='productdesc' #productdesc>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success" (click) = "saveChanges(productname.value, productPrice.value, productdesc.value)">Save</button>
+    </div>
+
+</div>
+
+<!-- <h2 matidialog-title>Edit Flight Information</h2>
+<mat-dialog-content>
+    <form class="text-center">
+        <mat-form-field class="mx-2">
+            <mat-label>Destination</mat-label>
+            <input matInput value="{{city}}" name='flightcity' #flightcity>
+            <mat-icon matSuffix>flight</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="mx-2">
+            <mat-label>Price</mat-label>
+            <input matInput value="{{price}}" name='flightprice' #flightprice>
+            <mat-icon matSuffix>attach_money</mat-icon>
+        </mat-form-field>
+        <button mat-raised-button mat-dialog-close color='accent'
+            (click)="saveChanges(flightcity.value, flightprice.value)">Save Changes</button>
+    </form>
+</mat-dialog-content> -->

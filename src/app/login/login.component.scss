@@ -1,0 +1,42 @@
+.login-page {
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;
+    background-color: rgb(223, 219, 219);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    mat-card {
+       width: 60%;
+        margin: 5% auto 10%;
+        border-radius: 8px;
+        @media(max-width: 1100px){
+          width: 80%;
+        }
+        @media(max-width: 770px){
+          width: 60%;
+        }
+        .col-md-6{
+          .Toolbar{
+            position: relative;
+            bottom: 2rem;
+            box-shadow: .1rem .1rem 1rem black;
+          }
+          .toolbar{
+            @media(max-width: 770px){
+              bottom: 0;
+              margin-top: 1rem;
+            }
+          }
+          form{
+            button{
+              margin: .8rem 0;
+            }
+          }
+       }
+     }
+}
+

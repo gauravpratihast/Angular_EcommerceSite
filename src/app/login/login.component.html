@@ -1,0 +1,93 @@
+<div class="login-page">
+    <mat-card class="mat-elevation-z12">
+        <!-- <mat-card-title class="text-center">Log In/Sign Up</mat-card-title> -->
+        <mat-card-content class="d-flex">
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-toolbar class="Toolbar" color='primary'>log In</mat-toolbar>
+                    <div class="container pt-3" *ngFor="let alert of alerts">
+                        <div class="alert mx-auto alert-danger" (close)="closeAlert(alert)">{{ alert.message }}</div>
+                    </div>
+                    <form (ngSubmit)="onSubmit(mgForm)" #mgForm='ngForm' class="d-flex flex-column px-4">
+                        <mat-form-field class="my-3">
+                            <input type="email" matInput placeholder="Email" required email name="email" ngModel
+                                #email="ngModel">
+                            <mat-error *ngIf="email.invalid">Email is required</mat-error>
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field class="my-3">
+                            <input matInput placeholder="Password" type="password" required minlength="6"
+                                name="password" ngModel #password="ngModel">
+                            <mat-error *ngIf="password.errors && password.errors.required">
+                                Password is required
+                            </mat-error>
+                            <mat-error *ngIf="password.errors && password.errors.minlength">
+                                Password must be of length 6
+                            </mat-error>
+                            <mat-icon matSuffix>lock</mat-icon>
+                        </mat-form-field>
+                        <mat-checkbox class="my-3">Remember Me!</mat-checkbox>
+                        <button mat-raised-button color="primary" class="login-button">
+                            Log In
+                        </button>
+                        <button mat-raised-button color='warn' class="login-button">
+                            Login with Google
+                        </button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <mat-toolbar class="Toolbar toolbar" color='primary'>Sign Up</mat-toolbar>
+                    <div class="container pt-3" *ngFor="let alert of alerts2">
+                        <div class="alert mx-auto alert-danger" (close)="closeAlert2(alert)">{{ alert.message }}</div>
+                    </div>
+                    <form (ngSubmit)="SignUp(sgForm)" #sgForm='ngForm' class="text-center row px-5">
+                        <mat-form-field class="my-1">
+                            <input type="text" matInput placeholder="User Name" required name="username" ngModel
+                                #username="ngModel">
+                            <mat-icon matSuffix>perm_identity</mat-icon>
+                            <mat-error *ngIf="username.invalid">
+                                Username is required
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="my-1">
+                            <input type="email" matInput placeholder="Email" required email name="email" ngModel
+                                #email="ngModel">
+                            <mat-error *ngIf="email.invalid">Email is required</mat-error>
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field class="my-1">
+                            <mat-label>Sort By</mat-label>
+                            <mat-select [(value)]='typeOfUser'>
+                                <mat-option value='user' selected>User</mat-option>
+                                <mat-option value='admin'>Admin</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="my-1">
+                            <input matInput placeholder="Password" type="password" required minlength="6"
+                                name="password" ngModel #password="ngModel">
+                            <mat-error *ngIf="password.errors && password.errors.required">
+                                Password is required
+                            </mat-error>
+                            <mat-error *ngIf="password.errors && password.errors.minlength">
+                                Password must be of length 6
+                            </mat-error>
+                            <mat-icon matSuffix>lock</mat-icon>
+
+                        </mat-form-field>
+                        <mat-form-field class="my-1">
+                            <input matInput placeholder="Confirm Password" type="password" required minlength="6"
+                                name="repassword" ngModel #repassword="ngModel" value=password>
+                            <mat-error *ngIf="repassword.errors && repassword.errors.required">
+                                Re-Enter Password is required
+                            </mat-error>
+                            <mat-icon matSuffix>lock</mat-icon>
+                        </mat-form-field>
+                        <button mat-raised-button color="primary" class="login-button">
+                            Sign Up
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

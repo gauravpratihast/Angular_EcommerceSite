@@ -1,0 +1,29 @@
+<footer>
+    <div class="container-fluid padding">
+        <div class="row text-center">
+            <div class="col-xs-12 col-sm-6 col-md-4 footer-div">
+                <hr class="light">
+                <h4 routerLink='' class="footer-headings">Lufthansa Group</h4>
+                <hr class="light">
+                <p *ngFor='let items of LufthansaGroup'>{{items}}</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 footer-div">
+                <hr class="light">
+                <h4 class="footer-headings">Corporate Customers</h4>
+                <hr class="light">
+                <p *ngFor='let items of CorporateCoustomerList'>{{items}}</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 footer-div">
+                <hr class="light">
+                <h4 class="footer-headings">Customer Services</h4>
+                <hr class="light">
+                <p *ngFor='let items of CoustomerServiceList'>{{items}}</p>
+            </div>
+            
+            <div class="col-12">
+                <hr class="light">
+                <h4>&copy; Lufthansa.com</h4>
+            </div>
+        </div>
+    </div>
+</footer>

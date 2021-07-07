@@ -1,0 +1,63 @@
+$background: #303F9F;
+$white: #fff;
+$black: #000;
+
+.backgroundImage{
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../../assets/images/oppo.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+    width: 100%;
+    h1, p{
+        color: $white;
+    }
+    button{
+        font-size: 1.2rem;
+        width: 10rem;
+        height: 3rem;
+        border-radius: 2.5rem;
+        border: .1rem solid $background;
+        background: transparent;
+        &:hover{
+            background: $background;
+            border: none;
+        } 
+    }
+}
+
+.serviceArea{
+    background: $white;
+    .text-center{
+        color: $black;
+        img{
+            height: 3rem;
+            width: 3rem;
+            margin-bottom: 1rem;
+            transition: background 1s;
+        }
+        &:hover{
+            color: $white;
+            background: $background;
+            box-shadow: .1rem .1rem 1rem $black;
+        }
+        &:active{
+            transform: translateY(-0.5rem);
+        }
+    }
+}
+
+.exclusiveproducts{
+    color: $white;
+    background: $background;
+    .card{
+        color: $black;
+        img{
+            height: 30%;
+        }
+        &:hover{
+            transform: translateY(-.5rem);
+            box-shadow: .1rem .1rem 1rem $black;
+        }
+    }
+    
+}

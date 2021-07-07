@@ -1,0 +1,80 @@
+<div class="container">
+    <h1 class="text-center my-4">Checkout Form</h1>
+    <h2>Your Total Price: {{totalPrice}}</h2>
+    <mat-horizontal-stepper linear>
+        <mat-step label='Your Products'>
+            <div class="row my-3">
+                <mat-card class="col-md-3 mx-3 my-2" *ngFor='let item of checkoutProducts'>
+                    <span>{{item.id}}</span>
+                    <mat-card-header class="justify-content-center">
+                        <p>{{item.productName}}</p>
+                        <!-- <p>Mobile</p> -->
+                    </mat-card-header>
+                    <mat-card-content class="text-center my-2">
+                        <img src="../../../assets/images/nokia.png">
+                        <!-- <p>Quantity <mat-icon>ac_unit</mat-icon> 5</p> -->
+                        <p>Product Price : {{item.price}}</p>
+                        <p>Product Quantity : {{item.quantity}}</p>
+                        <p>Total : {{item.price}} * {{item.quantity}} = {{item.price * item.quantity}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="button d-flex justify-content-end">
+                <button mat-raised-button color='accent' matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step label='Billing Details' [completed]='completed'>
+            <form class="row" #mgForm='ngForm'>
+                <mat-form-field class="col-md-12">
+                    <mat-label>Billing Address</mat-label>
+                    <input type="text" matInput required name='billingAddress' ngModel #billingAddress='ngModel'>
+                    <mat-error *ngIf='billingAddress.invalid'>Billing address is required</mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-md-6">
+                    <mat-label>First Name</mat-label>
+                    <input type="text" matInput required name='firstName' ngModel #firstName='ngModel'>
+                    <mat-error *ngIf='firstName.invalid'>First name is required</mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-md-6">
+                    <mat-label>Last Name</mat-label>
+                    <input type="text" matInput required name='lastName' ngModel #lastName='ngModel'>
+                    <mat-error *ngIf='lastName.invalid'>Last name is required</mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-md-12">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput required ngModel name='email' #email='ngModel'>
+                    <mat-error *ngIf='email.invalid'>Email is required</mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-md-12">
+                    <mat-label> Shipping Address</mat-label>
+                    <input type="text" matInput required ngModel name='shippingAddress' #shippingAddress='ngModel'>
+                    <mat-error *ngIf='shippingAddress.invalid'>Shipping address is required</mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-md-6">
+                    <mat-label>Select State</mat-label>
+                    <mat-select>
+                        <mat-option value='up' selected>Uttar Pradesh</mat-option>
+                        <mat-option value='delhi'>Delhi</mat-option>
+                        <mat-option value='shimla'>Shimla</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="col-md-6">
+                    <mat-label>Pincode</mat-label>
+                    <input type="text" matInput required ngModel name='pinCode' #pinCode='ngModel'>
+                    <mat-error *ngIf='pinCode.invalid'>Pincode is required</mat-error>
+                </mat-form-field>
+            </form>
+            <div class="button d-flex justify-content-between">
+                <button matStepperPrevious mat-raised-button color='accent'>Back</button>
+                <button matStepperNext mat-raised-button color='accent' (click)="onSubmit(mgForm)" [disabled]='!mgForm.valid'>Next</button>
+            </div>
+        </mat-step>
+        <mat-step label='Pay Now' [completed]='completed' class="step3">
+            <p class="my-5">Payment Options</p>
+            <div class="button d-flex justify-content-between">
+                <button matStepperPrevious mat-raised-button color='accent'>Back</button>
+                <button matStepperNext mat-raised-button color='accent' (click)='confirm(mgForm)'>Confirm</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>
