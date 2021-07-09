@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductsdataService } from '../services/productsdata.service';
-import { FormControl, FormGroup, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dialog',
@@ -11,7 +12,9 @@ import { FormControl, FormGroup, NgForm, ReactiveFormsModule, Validators } from 
 export class DialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              private productData: ProductsdataService) { }
+              private productData: ProductsdataService,
+              private dialogRef: MatDialogRef<DialogComponent>,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     // console.log(this.select)
@@ -22,15 +25,14 @@ export class DialogComponent implements OnInit {
       'description': new FormControl('', [Validators.required, Validators.maxLength(100)])
     });
   }
+
   myReactiveForm!: FormGroup;
   regExForNumber = /^\d+(\.\d{1,2})?$/;
-  alerts: any[] = [];
   selectedImage: any;
   showingImage:boolean=false;
-
   select = this.data.select;
-
   id = 0;
+  
   findId(){
     if(this.select === 'mobile'){
       this.id = this.productData.mobileArray.length;
@@ -73,17 +75,7 @@ export class DialogComponent implements OnInit {
     listFromInput.splice(0, listFromInput.length);
     this.myReactiveForm.reset(); 
     this.showingImage = false;
-    this.alerts.push({
-      id: 1,
-      type: 'success',
-      message: 'New Product Added Sucessfully'
-    });
-    setTimeout(() => {
-      this.closeAlert(this.alerts);
-    }, 2000);
+    this.dialogRef.close();
+    this.snackBar.open('Product Added Sucessfully', '', {duration: 2000});
   } 
-  closeAlert(alert: any) {
-    this.alerts.splice(0, this.alerts.length);
-  }
-
 }

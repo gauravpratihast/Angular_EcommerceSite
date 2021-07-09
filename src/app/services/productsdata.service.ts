@@ -5,7 +5,19 @@ import { Injectable } from '@angular/core';
 })
 export class ProductsdataService {
 
-  constructor() { }
+  constructor() { 
+    this.setToLocalStorage('mobileArray', this.mobileArray);
+    this.setToLocalStorage('laptopArray', this.laptopArray);
+    this.setToLocalStorage('clothingArray', this.clothingArray);
+    // localStorage.setItem('mobileArray', JSON.stringify(this.mobileArray));
+  }
+
+  setToLocalStorage(name:string, data: any){
+      let data_seralized = JSON.stringify(data);
+      // console.log(data_seralized);
+      localStorage.setItem(name, data_seralized)
+    
+  }
 
   mobileArray = [
     {
@@ -305,19 +317,19 @@ export class ProductsdataService {
   ]
 
   fetchById_InMobileArray(id: any){
-    const list = this.mobileArray.filter((Element: { id: any; })=>{
+    const list = JSON.parse(localStorage.getItem('mobileArray') || '{}').filter((Element: { id: any; })=>{
       return Element.id == id
     })
     return list
   }
   fetchById_InLaptopArray(id: any){
-    const list = this.laptopArray.filter((Element: { id: any; })=>{
+    const list = JSON.parse(localStorage.getItem('laptopArray') || '{}').filter((Element: { id: any; })=>{
       return Element.id == id
     })
     return list
   }
   fetchById_InClothingarray(id: any){
-    const list = this.clothingArray.filter((Element: { id: any; })=>{
+    const list = JSON.parse(localStorage.getItem('clothingArray') || '{}').filter((Element: { id: any; })=>{
       return Element.id == id
     })
     return list

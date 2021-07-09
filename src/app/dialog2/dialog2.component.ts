@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProductsdataService } from '../services/productsdata.service';
 
@@ -12,7 +12,8 @@ export class Dialog2Component implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               private productData: ProductsdataService,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar,
+              private dialogRef: MatDialogRef<Dialog2Component>) { }
 
   ngOnInit(): void {
     // console.log(this.data);
@@ -41,7 +42,8 @@ export class Dialog2Component implements OnInit {
       this.productData.fetchById_InClothingarray(this.id)[0].price = price;
       this.productData.fetchById_InClothingarray(this.id)[0].product_Description = desc;
     }
-    this.snackBar.open('Changes Saved Sucessfully', '', {duration: 2000})
+    this.snackBar.open('Changes Saved Sucessfully', '', {duration: 2000});
+    this.dialogRef.close();
   }
 
 

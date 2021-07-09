@@ -17,6 +17,7 @@ export class MycartComponent implements OnInit, DoCheck {
   }
 
   productlist = this._cartData.products;
+  // testing = 'working';
 
   deleteRow(id: number) {
     for (let i = 0; i < this.productlist.length; ++i) {

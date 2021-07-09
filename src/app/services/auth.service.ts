@@ -5,24 +5,29 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  constructor() { }
+  constructor() {
+    localStorage.setItem('adminList', JSON.stringify(this.admin));
+    localStorage.setItem('userList', JSON.stringify(this.authorizedUsers));
+   }
 
   authorizedUsers:any[] =[
     {
-      username: 'Gaurav',
-      email: 'gp@21',
+      username: 'Xyz',
+      email: 'xy@gmail.com',
       password: '123456'
     }
   ]
 
   admin: any[] = [
     {
-      username: 'abc',
-      email: 'abc@1',
+      username: 'UserName',
+      email: 'abc@gmail.com',
       password: '12345678'
     }
   ]
 
+  loginUser: any = [];
+
   isloggedIn = false;
-  adminloggedIn = false;
+  adminloggedIn = true;
 }

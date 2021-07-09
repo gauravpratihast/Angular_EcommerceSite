@@ -16,7 +16,7 @@ export class LaptopComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(param => {
-      this.detailArray = this.productsData.fetchById_InMobileArray(param.get('id'));
+      this.detailArray = this.productsData.fetchById_InLaptopArray(param.get('id'));
       // console.log(this.detailArray);
     })
   }

@@ -16,6 +16,12 @@ export class LoginComponent implements OnInit {
     private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('adminList') != null){
+      // let adminList = JSON.parse(localStorage.getItem('adminList') || '{}');
+      // localStorage.setItem('adminList', JSON.stringify(this.newAdminList))
+      console.log(this.newAdminList);
+
+    }
   }
 
   login: boolean = false;
@@ -47,10 +53,12 @@ export class LoginComponent implements OnInit {
     // console.log('submit');
     let email = form.value.email;
     let password = form.value.password;
-    form.resetForm();
+    // form.resetForm();
     this.auth.authorizedUsers.find(item => {
       if (email === item.email && password === item.password) {
         this.auth.isloggedIn = true;
+        // this.auth.loginUser.push(item.username);
+        // console.log(this.auth.loginUser);
       }
       else if (email === item.email && password != item.password) {
         this.alertFunction("User Passward didn't match");
@@ -67,6 +75,8 @@ export class LoginComponent implements OnInit {
     this.auth.admin.find(item => {
       if (email === item.email && password === item.password) {
         this.auth.adminloggedIn = true;
+        this.auth.loginUser.push(item.username);
+        // console.log(this.auth.loginUser);
       }
       else if (email === item.email && password != item.password) {
         this.alertFunction("Admin Passward didn't match");
@@ -80,7 +90,10 @@ export class LoginComponent implements OnInit {
         this.auth.adminloggedIn = false;
       }
     });
-    if (this.auth.isloggedIn) {
+    if(email === '' || password === ''){
+      this.alertFunction('Fill credentials first')
+    }
+    else if (this.auth.isloggedIn) {
       this.route.navigate(['/products']);
       this.snackBar.open('User logged in', '', { duration: 2000 })
     }
@@ -88,8 +101,9 @@ export class LoginComponent implements OnInit {
       this.route.navigate(['/admin']);
       this.snackBar.open('Admin logged in', '', { duration: 2000 });
     }
-    else {
+    else if((!this.auth.adminloggedIn && !this.auth.isloggedIn) && (email != '' && password != '')) {
       this.alertFunction("You didn't regestred")
+      form.resetForm();
     }
   }
 
@@ -100,7 +114,7 @@ export class LoginComponent implements OnInit {
     let password = form.value.password;
     let confirmpass = form.value.repassword;
     if (!form.valid) {
-      this.snackBar.open('Fill the form', '', { duration: 2000 })
+      this.alertFunction2('Fill the form');
     }
     else {
       form.resetForm();
@@ -119,6 +133,9 @@ export class LoginComponent implements OnInit {
             }
             else {
               this.auth.admin.push(new_user[0]);
+              this.newAdminList = JSON.parse(localStorage.getItem('adminList') || '{}');
+              this.newAdminList.push(new_user[0]);
+              localStorage.setItem('adminList', JSON.stringify(this.newAdminList));
               this.snackBar.open('Admin registered', '', { duration: 2000 });
               new_user.splice(0, new_user.length);
             }
@@ -138,11 +155,11 @@ export class LoginComponent implements OnInit {
         }
       }
       else {
-        this.snackBar.open('Password didnot match', '', { duration: 2000 });
+        this.alertFunction('Password didnot match');
       }
     }
   }
+
+  newAdminList:any[] = [];
   
 }
-
-

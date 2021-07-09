@@ -3,7 +3,7 @@ $white: #fff;
 $black: #000;
 
 .backgroundImage{
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../../assets/images/oppo.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../../assets/images/pro11.jpg);
     background-position: center;
     background-size: cover;
     height: 80vh;
@@ -48,7 +48,7 @@ $black: #000;
 
 .exclusiveproducts{
     color: $white;
-    background: $background;
+    background: #707cca;
     .card{
         color: $black;
         img{

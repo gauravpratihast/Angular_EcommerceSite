@@ -48,6 +48,7 @@ export class HeaderComponent implements OnInit {
     if(navItem==='Log Out'){
       this.auth.isloggedIn = false;
       this.auth.adminloggedIn = false;
+      this.auth.loginUser = [];
       this.route.navigate(['/login']);
       this.snackBar.open('Log Out Sucessfully', '', {duration: 2000});
     }

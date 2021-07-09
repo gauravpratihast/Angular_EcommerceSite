@@ -36,6 +36,6 @@ import {MatRadioModule} from '@angular/material/radio';
 })
 export class CheckoutModule { 
   constructor(){
-    console.log('checkout loads');
+    // console.log('checkout loads');
   }
 }

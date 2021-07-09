@@ -1,8 +1,14 @@
 <div class="container">
-    <h1 class="text-center my-4">Checkout Form</h1>
-    <h2>Your Total Price: {{totalPrice}}</h2>
+    <h1 class="text-center my-3">Checkout Form</h1>
+    <div class="button my-3">
+        <button mat-raised-button color='accent' (click)='backToCart()'>Back to Cart</button>
+    </div>
+    <h2 class="pt-2">Your Total Price: {{totalPrice}}</h2>
     <mat-horizontal-stepper linear>
         <mat-step label='Your Products'>
+            <div *ngIf='visible' class="noProducts">
+                <h2>Your Cart is Empty</h2>
+            </div>
             <div class="row my-3">
                 <mat-card class="col-md-3 mx-3 my-2" *ngFor='let item of checkoutProducts'>
                     <span>{{item.id}}</span>
@@ -11,7 +17,7 @@
                         <!-- <p>Mobile</p> -->
                     </mat-card-header>
                     <mat-card-content class="text-center my-2">
-                        <img src="../../../assets/images/nokia.png">
+                        <img src={{item.imageLink}}>
                         <!-- <p>Quantity <mat-icon>ac_unit</mat-icon> 5</p> -->
                         <p>Product Price : {{item.price}}</p>
                         <p>Product Quantity : {{item.quantity}}</p>
@@ -78,3 +84,5 @@
         </mat-step>
     </mat-horizontal-stepper>
 </div>
+
+<!-- {{test}} -->

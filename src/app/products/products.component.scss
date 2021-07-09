@@ -33,5 +33,10 @@
             font-size: 1rem;
             font-weight: bolder;
         }
+        button{
+            @media(max-width: 1200px){
+                margin: .2rem !important;
+            }
+        }
     }
 }

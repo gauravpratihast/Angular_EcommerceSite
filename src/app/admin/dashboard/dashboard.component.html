@@ -1,11 +1,15 @@
+<!-- {{user}} -->
 <mat-toolbar color='accent' class="d-flex justify-content-between">
     <span>Admin Dashboard</span>
-    <span>Admin</span>
+    <div class="admin">
+        <span class="me-1"><mat-icon>perm_identity</mat-icon></span>
+        <span class="me-3">{{userName}}</span>
+    </div>
 </mat-toolbar>
 <div class="container">
     <div class="my-4 d-flex justify-content-around">
         <div class="addButton">
-            <button mat-raised-button (click)='openDialog(select.value)'>Add new Flight</button>
+            <button mat-raised-button (click)='openDialog(select.value)'>Add New Product</button>
         </div>
         <mat-form-field class="my-1">
             <mat-label>Category</mat-label>
@@ -38,3 +42,4 @@
         </div>
     </div>
 </div>
+
