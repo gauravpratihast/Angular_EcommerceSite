@@ -29,5 +29,5 @@ export class AuthService {
   loginUser: any = [];
 
   isloggedIn = false;
-  adminloggedIn = true;
+  adminloggedIn = false;
 }
