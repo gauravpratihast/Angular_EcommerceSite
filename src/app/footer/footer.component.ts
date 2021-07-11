@@ -12,26 +12,27 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  LufthansaGroup:any[]=[
-    'Jobs & carrers',
-    'Aviation Group',
-    'Press',
-    'Lufthansa Partners',
-    'Sustainability'
+  socialMediaList:any[]=[
+    'Facebook',
+    'Twitter',
+    'Youtube',
+    'Instagram'
 ]
 
-CoustomerServiceList:any[]=[
-  'Lufthansa ID account',
-  'Miles & More',
-  'Help & Contact',
-  'Feedback',
-  'Newsletter'
+helpList:any[]=[
+  'Payments',
+  'Shipping',
+  'FAQ',
+  'Report',
+  'Returns'
 ]
 
-CorporateCoustomerList:any[]=[
-  'For Travel Agents',
-  'For Corporate Coustomers',
-  'Corporate Bonus Programme'
+policyList:any[]=[
+  'Return Policy',
+  'Terms of Use',
+  'Security',
+  'Privacy',
+  'Sitemap'
 ]
 
 }
