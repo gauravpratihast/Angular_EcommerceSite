@@ -4,6 +4,10 @@
     margin-bottom: 17.5rem;
     padding: 0 5rem;
     .checkout{
+        @media(max-width: 500px){
+            flex-direction: column;
+            text-align: center;
+        }
         a{
             button{
                 width: 10rem;
@@ -11,6 +15,11 @@
         }
     }
     table{
+        .thead-light{
+            @media(max-width: 700px){
+                display: none;
+            }
+        }
         img{
             height: 5rem;
             width: 5rem;
@@ -18,6 +27,17 @@
         tbody{
             tr{
                 vertical-align: middle;
+                @media(max-width: 700px){
+                    display: block;
+                    margin-bottom: 1.5rem;
+                }
+            }
+            td{
+                @media(max-width: 700px){
+                    display: block;
+                    width: 100%;
+                    border: .001rem solid #303F9F;
+                }
             }
             button{
                 border-radius: 50%;

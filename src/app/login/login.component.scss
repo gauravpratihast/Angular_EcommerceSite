@@ -17,14 +17,22 @@
           width: 80%;
         }
         @media(max-width: 770px){
-          width: 60%;
+          width: 95%;
+        }
+        @media(max-width: 550px){
+          margin-top: 4rem;
         }
         .col-md-6{
           .Toolbar{
             position: relative;
             bottom: 2rem;
             box-shadow: .1rem .1rem 1rem black;
+            @media(max-width: 350px){
+              width: 60%;
+              margin: 0 auto;
+            }
           }
+          
           .toolbar{
             @media(max-width: 770px){
               bottom: 0;

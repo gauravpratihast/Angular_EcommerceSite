@@ -17,7 +17,7 @@ export class Dialog2Component implements OnInit {
 
   ngOnInit(): void {
     // console.log(this.data);
-    console.log(this.product_Description, this.select, this.price, this.productName);
+    // console.log(this.product_Description, this.select, this.price, this.productName);
   }
 
   id = this.data.item.id;
@@ -31,6 +31,7 @@ export class Dialog2Component implements OnInit {
       this.productData.fetchById_InMobileArray(this.id)[0].productName = name;
       this.productData.fetchById_InMobileArray(this.id)[0].price = price;
       this.productData.fetchById_InMobileArray(this.id)[0].product_Description = desc;
+      // console.log(this.productData.fetchById_InMobileArray(this.id)[0].productName)
     }
     else if(this.select === 'laptop'){
       this.productData.fetchById_InLaptopArray(this.id)[0].productName = name;

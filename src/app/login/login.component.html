@@ -8,8 +8,8 @@
                     <div class="container pt-3" *ngFor="let alert of alerts">
                         <div class="alert mx-auto alert-danger" (close)="closeAlert(alert)">{{ alert.message }}</div>
                     </div>
-                    <form (ngSubmit)="onSubmit(mgForm)" #mgForm='ngForm' class="d-flex flex-column px-4">
-                        <mat-form-field class="my-3">
+                    <form (ngSubmit)="onSubmit(mgForm)" #mgForm='ngForm' class="d-flex flex-column px-4 row">
+                        <mat-form-field class="my-3 col-md-12">
                             <input type="email" matInput placeholder="Email" required email name="email" ngModel
                                 #email="ngModel">
                             <mat-error *ngIf="email.invalid">Email is required</mat-error>

@@ -14,10 +14,14 @@ export class MycartComponent implements OnInit, DoCheck {
 
   ngOnInit(): void {
     // console.log(this._cartData.products)
+    
   }
+
+  cartEmpty:boolean = true;
 
   productlist = this._cartData.products;
   // testing = 'working';
+
 
   deleteRow(id: number) {
     for (let i = 0; i < this.productlist.length; ++i) {
@@ -61,5 +65,11 @@ export class MycartComponent implements OnInit, DoCheck {
   ngDoCheck() {
     this.computeTotal();
     this._cartData.totalprice = this.totalPrice;
+    if(this.productlist.length === 0){
+      this.cartEmpty = true;
+    }
+    else{
+      this.cartEmpty = false;
+    }
   }
 }

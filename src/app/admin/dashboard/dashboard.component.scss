@@ -1,4 +1,13 @@
 .container{
+    .addAndSearch{
+        @media(max-width: 500px){
+            flex-direction: column;
+            .addButton{
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+        }
+    }
     mat-form-field{
         input, mat-select, mat-label{
             font-weight: bolder;

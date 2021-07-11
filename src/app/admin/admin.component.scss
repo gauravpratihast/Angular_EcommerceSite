@@ -3,5 +3,8 @@ mat-drawer-container{
     mat-drawer{
         width: 20%;
         background: #233768;
+        @media(max-width: 800px){
+            width: 0% !important;
+        }
     }
 }
